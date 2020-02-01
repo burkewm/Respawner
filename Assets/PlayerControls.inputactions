@@ -1,0 +1,71 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "Arm",
+            "id": "cd9afb9a-b9ca-4ad4-b845-a05ae5e9755a",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "52fe0ff3-d43e-4825-b6a9-60e0241d66db",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "LiftHand",
+                    "type": "Button",
+                    "id": "f776770b-a369-4678-b3b8-1b55dff3d65d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "LowerHand",
+                    "type": "Button",
+                    "id": "45172158-6a21-44d4-a9be-3bc29a6fb89d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3c65c7f2-89cd-4b34-9300-857054a1a409",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "Normalize(min=1,max=1)",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5dbd05f2-7a9b-4e5a-bbe5-3f23387b0754",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LiftHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39cbf514-aeff-4393-bc5f-553dceb6ae49",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LowerHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
