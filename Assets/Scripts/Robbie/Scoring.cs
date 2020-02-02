@@ -27,9 +27,9 @@ public class Scoring : MonoBehaviour
         Vector3 score = new Vector3(0,0,0);
         for(int i = 0; i < originalVerticiesPositions.Length; i++)
         {
-            Debug.Log("og vert: "+originalVerticiesPositions[i] +" - final vert "+ finalVerticiesPositions[i]+" = "+ (originalVerticiesPositions[i] - finalVerticiesPositions[i]));
+            //Debug.Log("og vert: "+originalVerticiesPositions[i] +" - final vert "+ finalVerticiesPositions[i]+" = "+ (originalVerticiesPositions[i] - finalVerticiesPositions[i]));
             score += (originalVerticiesPositions[i] - finalVerticiesPositions[i]);
-            Debug.Log("Score = " + score);
+            //Debug.Log("Score = " + score);
         }
 
         float finalX = Mathf.Abs(score.x);

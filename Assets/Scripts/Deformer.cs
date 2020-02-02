@@ -107,7 +107,7 @@ public class Deformer : MonoBehaviour
     {
         int contactPointIndex = Random.Range(0, deformingMesh.vertices.Length - 1);
         Vector3 point = deformingMesh.vertices[contactPointIndex];
-        float force = 25;
+        float force = 90;
         int numDamagePoints = Random.Range(0, 3);
 
         for (int i = 0; i < numDamagePoints; i++)
