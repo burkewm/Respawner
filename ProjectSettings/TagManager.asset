@@ -7,6 +7,11 @@ TagManager:
   - hammer
   - Interact
   - hand
+  - Skeleton
+  - Helmet
+  - BracerR
+  - Chest
+  - BracerL
   layers:
   - Default
   - TransparentFX

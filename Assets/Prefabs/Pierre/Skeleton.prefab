@@ -3060,6 +3060,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3196943754000667063, guid: 2b4aaa6ee2f33aa4982a435ceea094e0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Chest
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4aaa6ee2f33aa4982a435ceea094e0, type: 3}
 --- !u!1 &2874201795261559503 stripped
@@ -3090,6 +3095,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101640442956666406, guid: 9d19c4118c519e0468a0572b701747a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: BracerL
       objectReference: {fileID: 0}
     - target: {fileID: 5101640442956827142, guid: 9d19c4118c519e0468a0572b701747a3,
         type: 3}
@@ -3176,6 +3186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499775581370265519, guid: ce8b60cbfbdf59843bd16a904f24edc9,
+        type: 3}
+      propertyPath: m_TagString
+      value: BracerR
       objectReference: {fileID: 0}
     - target: {fileID: 5499775581370626959, guid: ce8b60cbfbdf59843bd16a904f24edc9,
         type: 3}
@@ -3317,6 +3332,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632810692984898059, guid: 258446b455aa4be4086e0438e9696506,
+        type: 3}
+      propertyPath: m_TagString
+      value: Helmet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 258446b455aa4be4086e0438e9696506, type: 3}

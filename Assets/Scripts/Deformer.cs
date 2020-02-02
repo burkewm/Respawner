@@ -20,7 +20,7 @@ public class Deformer : MonoBehaviour
     {
         meshCollider = GetComponent<MeshCollider>();
         meshCollider.convex = true;
-        //meshCollider.sharedMesh = deformingMesh;
+        meshCollider.sharedMesh = deformingMesh;
         deformingMesh = GetComponent<MeshFilter>().mesh;
         meshCollider.sharedMesh = deformingMesh;
         originalVertices = deformingMesh.vertices;
@@ -76,7 +76,7 @@ public class Deformer : MonoBehaviour
         Vector3 velocity = vertexVelocities[i];
         velocity *= 1f - damping * Time.deltaTime;
         vertexVelocities[i] = velocity;
-        displacedVertices[i] += velocity * (Time.deltaTime / uniformScale);
+        displacedVertices[i] += velocity * Time.deltaTime;
 
     }
 

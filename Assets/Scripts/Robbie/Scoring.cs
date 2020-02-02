@@ -17,15 +17,15 @@ public class Scoring : MonoBehaviour
 
 
         parentTag = gameObject.tag;
-        Debug.Log("Tag is " + parentTag);
+        //Debug.Log("Tag is " + parentTag);
 
         SetVertList();
     }
 
     private void SetVertList()
     {
-        prefabs = GameObject.FindWithTag("Manager").GetComponent<RandomEquipment>().equipmentOptions;
-        Debug.Log("The length of Prefabs is " + prefabs.Count);
+        prefabs = GameObject.FindWithTag("Skeleton").GetComponent<RandomEquipment>().equipmentOptions;
+        //Debug.Log("The length of Prefabs is " + prefabs.Count);
 
         for(int i = 0; i < prefabs.Count; i++)
         {
@@ -33,7 +33,7 @@ public class Scoring : MonoBehaviour
             {
                 originalVerticiesPositions = prefabs[i].GetComponent<MeshFilter>().sharedMesh.vertices;
                 finalVerticiesPositions = new Vector3[originalVerticiesPositions.Length];
-                Debug.Log("The tags match!");
+                //Debug.Log("The tags match!");
             }
         }
     }

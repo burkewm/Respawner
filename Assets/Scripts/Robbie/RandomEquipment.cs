@@ -29,7 +29,7 @@ public class RandomEquipment : MonoBehaviour
                 GameObject armor = equipmentOptions[randoIndex].gameObject;
                 armor.SetActive(true);
                 //var newArmor = Instantiate(armor, new Vector3(0, 4, 0), Quaternion.identity);
-                //equippedArmor.Add(newArmor);
+                equippedArmor.Add(armor);
             }
             else
             {
@@ -39,15 +39,16 @@ public class RandomEquipment : MonoBehaviour
                 armor.SetActive(true);
                 //var newArmor = Instantiate(armor, new Vector3(0, 4, 0), Quaternion.identity);
                 armor.GetComponent<Deformer>().StartingDamage();
-                //equippedArmor.Add(newArmor);
+                equippedArmor.Add(armor);
             }
             
         }
 
-        for(int i = 0; i < equippedArmor.Count; i++)
-        {
-            equippedArmor[i].GetComponent<Scoring>().ScoreTime();
-        }
+        //for(int i = 0; i < equippedArmor.Count; i++)
+        //{
+        //    Debug.Log("equipped index["+i+"]");
+        //    equippedArmor[i].GetComponent<Scoring>().ScoreTime();
+        //}
     }
 
 }
