@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3616778826312146957
+--- !u!1 &7632810692984898059
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4325898309636007099}
-  - component: {fileID: 3911496244334555240}
-  - component: {fileID: 5722614791999626392}
-  - component: {fileID: 7076885964201400669}
-  - component: {fileID: 8921951524250104097}
-  - component: {fileID: 6483426824564231883}
+  - component: {fileID: 7481882350017005245}
+  - component: {fileID: 7896002913615712878}
+  - component: {fileID: 1492554160956964510}
+  - component: {fileID: 4173279424277019483}
+  - component: {fileID: 2309627977437598503}
+  - component: {fileID: 154692027038411981}
   m_Layer: 10
-  m_Name: default
+  m_Name: Helm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4325898309636007099
+--- !u!4 &7481882350017005245
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616778826312146957}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 7632810692984898059}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.000106540865, y: 0.17627151, z: 0.0015980955}
+  m_LocalScale: {x: 0.00079657004, y: 0.00079657004, z: 0.00079657004}
   m_Children: []
-  m_Father: {fileID: 6081674074509244291}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3911496244334555240
+--- !u!33 &7896002913615712878
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616778826312146957}
+  m_GameObject: {fileID: 7632810692984898059}
   m_Mesh: {fileID: -2432090755550338912, guid: 503d514f50ae27943a8b7ecf113c1b29, type: 3}
---- !u!23 &5722614791999626392
+--- !u!23 &1492554160956964510
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616778826312146957}
+  m_GameObject: {fileID: 7632810692984898059}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -82,13 +82,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &7076885964201400669
+--- !u!64 &4173279424277019483
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616778826312146957}
+  m_GameObject: {fileID: 7632810692984898059}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -96,13 +96,13 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 503d514f50ae27943a8b7ecf113c1b29, type: 3}
---- !u!54 &8921951524250104097
+--- !u!54 &2309627977437598503
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616778826312146957}
+  m_GameObject: {fileID: 7632810692984898059}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -112,13 +112,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6483426824564231883
+--- !u!114 &154692027038411981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3616778826312146957}
+  m_GameObject: {fileID: 7632810692984898059}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f4df8ad2f41ef54d969b1fca2388e74, type: 3}
@@ -126,34 +126,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damping: 5
   forceOffset: 0.1
---- !u!1 &7078862025254077840
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6081674074509244291}
-  m_Layer: 10
-  m_Name: Helm
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6081674074509244291
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7078862025254077840}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000106540865, y: 0.17627151, z: 0.0015981098}
-  m_LocalScale: {x: 0.0007965701, y: 0.0007965701, z: 0.0007965701}
-  m_Children:
-  - {fileID: 4325898309636007099}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
