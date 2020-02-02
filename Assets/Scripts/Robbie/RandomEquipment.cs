@@ -5,9 +5,9 @@ using UnityEngine;
 public class RandomEquipment : MonoBehaviour
 {
     public List<GameObject> equipmentOptions = new List<GameObject>();
-    public List<GameObject> equipmentSpawns = new List<GameObject>();
+    private List<GameObject> equipmentSpawns = new List<GameObject>();
 
-    public List<GameObject> equippedArmor = new List<GameObject>();
+    private List<GameObject> equippedArmor = new List<GameObject>();
 
     private void Start()
     {
@@ -27,17 +27,19 @@ public class RandomEquipment : MonoBehaviour
                 Debug.Log("undamaged");
                 int randoIndex = Random.Range(0, equipmentOptions.Count);
                 GameObject armor = equipmentOptions[randoIndex].gameObject;
-                var newArmor = Instantiate(armor, new Vector3(0, 4, 0), Quaternion.identity);
-                equippedArmor.Add(newArmor);
+                armor.SetActive(true);
+                //var newArmor = Instantiate(armor, new Vector3(0, 4, 0), Quaternion.identity);
+                //equippedArmor.Add(newArmor);
             }
             else
             {
                 Debug.Log("damaged");
                 int randoIndex = Random.Range(0, equipmentOptions.Count);
                 GameObject armor = equipmentOptions[randoIndex].gameObject;
-                var newArmor = Instantiate(armor, new Vector3(0, 4, 0), Quaternion.identity);
-                newArmor.GetComponent<Deformer>().StartingDamage();
-                equippedArmor.Add(newArmor);
+                armor.SetActive(true);
+                //var newArmor = Instantiate(armor, new Vector3(0, 4, 0), Quaternion.identity);
+                armor.GetComponent<Deformer>().StartingDamage();
+                //equippedArmor.Add(newArmor);
             }
             
         }
