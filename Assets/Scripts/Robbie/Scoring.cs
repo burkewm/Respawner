@@ -4,21 +4,38 @@ using UnityEngine;
 
 public class Scoring : MonoBehaviour
 {
+    List<GameObject> prefabs;
     Mesh meshToScore;
     Vector3[] originalVerticiesPositions, finalVerticiesPositions;
-    
+    string parentTag;
     // Start is called before the first frame update
     void Awake()
     {
         meshToScore = GetComponent<MeshFilter>().mesh;
         originalVerticiesPositions = meshToScore.vertices;
         //finalVerticiesPositions = new Vector3[originalVerticiesPositions.Length];
+
+
+        parentTag = gameObject.tag;
+        Debug.Log("Tag is " + parentTag);
+
+        SetVertList();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetVertList()
     {
-        
+        prefabs = GameObject.FindWithTag("Manager").GetComponent<RandomEquipment>().equipmentOptions;
+        Debug.Log("The length of Prefabs is " + prefabs.Count);
+
+        for(int i = 0; i < prefabs.Count; i++)
+        {
+            if(prefabs[i].tag == parentTag)
+            {
+                originalVerticiesPositions = prefabs[i].GetComponent<MeshFilter>().sharedMesh.vertices;
+                finalVerticiesPositions = new Vector3[originalVerticiesPositions.Length];
+                Debug.Log("The tags match!");
+            }
+        }
     }
 
     public void ScoreTime()
