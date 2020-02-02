@@ -11,8 +11,13 @@ public class Arm : MonoBehaviour
     bool liftHand = false;
     bool lowerHand = false;
     // Start is called before the first frame update
+    bool closedThumb = false;
+    bool closedIndex = false;
+    bool closedMiddle = false;
+    bool closedRing = false;
+    bool closedPinky = false;
 
-     void Awake()
+    void Awake()
     {
         controls = new PlayerControls();
         controls.Arm.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
@@ -26,6 +31,22 @@ public class Arm : MonoBehaviour
 
         controls.Arm.LowerHand.performed += ctx => lowerHand = true;
         controls.Arm.LowerHand.canceled += ctx => lowerHand = false;
+
+        controls.Arm.CloseThumb.performed += ctx => closedThumb = true;
+        controls.Arm.CloseThumb.performed += ctx => closedThumb = false;
+
+        controls.Arm.CloseIndex.performed += ctx => closedIndex = true;
+        controls.Arm.CloseIndex.performed += ctx => closedIndex = false;
+
+        controls.Arm.CloseMiddle.performed += ctx => closedMiddle = true;
+        controls.Arm.CloseMiddle.performed += ctx => closedMiddle = false;
+
+        controls.Arm.CloseRing.performed += ctx => closedRing = true;
+        controls.Arm.CloseRing.performed += ctx => closedRing = false;
+
+        controls.Arm.ClosePinky.performed += ctx => closedPinky = true;
+        controls.Arm.ClosePinky.performed += ctx => closedPinky = false;
+
     }
     private void OnEnable()
     {
@@ -50,6 +71,11 @@ public class Arm : MonoBehaviour
         if (lowerHand)
         {
             LowerHand();
+        }
+
+        if(closedThumb && closedIndex && closedMiddle && closedMiddle && closedRing && closedPinky)
+        {
+            //TO GRAB
         }
     }
 
