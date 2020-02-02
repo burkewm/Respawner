@@ -76,6 +76,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Rotate",
+                    "type": "Button",
+                    "id": "782d83d6-ec06-471b-9c79-e88a787c0557",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -85,7 +93,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "Normalize(min=1,max=1)",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad;Keyboard",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -96,7 +104,7 @@
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad;Keyboard",
                     "action": "LiftHand",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -107,7 +115,7 @@
                     "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Keyboard;Gamepad",
                     "action": "LiftHand",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -118,7 +126,7 @@
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad;Keyboard",
                     "action": "LowerHand",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -129,7 +137,7 @@
                     "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Keyboard;Gamepad",
                     "action": "LowerHand",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -140,7 +148,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad;Keyboard",
                     "action": "CloseThumb",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -151,7 +159,7 @@
                     "path": "<Keyboard>/h",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Keyboard;Gamepad",
                     "action": "CloseThumb",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -162,7 +170,7 @@
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad;Keyboard",
                     "action": "CloseIndex",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -173,7 +181,7 @@
                     "path": "<Keyboard>/u",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad;Keyboard",
                     "action": "CloseIndex",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -184,7 +192,7 @@
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad;Keyboard",
                     "action": "CloseMiddle",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -195,7 +203,7 @@
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad;Keyboard",
                     "action": "CloseMiddle",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -206,7 +214,7 @@
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad;Keyboard",
                     "action": "CloseRing",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -217,7 +225,7 @@
                     "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad;Keyboard",
                     "action": "CloseRing",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -228,7 +236,7 @@
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard;Gamepad",
                     "action": "ClosePinky",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -239,7 +247,7 @@
                     "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad;Keyboard",
                     "action": "ClosePinky",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -261,7 +269,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Keyboard;Gamepad",
                     "action": "KeyboardMovement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -272,7 +280,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Keyboard;Gamepad",
                     "action": "KeyboardMovement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -283,7 +291,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Keyboard;Gamepad",
                     "action": "KeyboardMovement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -294,10 +302,32 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Keyboard;Gamepad",
                     "action": "KeyboardMovement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "cefa6013-3150-48f2-804d-c75986d538c3",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad;Keyboard",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "965967e4-aefd-4888-b57a-8245000cfdad",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard;Gamepad",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

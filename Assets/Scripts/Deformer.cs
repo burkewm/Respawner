@@ -91,7 +91,7 @@ public class Deformer : MonoBehaviour
     private IEnumerator sethittable()
     {
         hittable = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -103,7 +103,7 @@ public class Deformer : MonoBehaviour
                 if (contact.otherCollider.gameObject.tag == "hammer")
                 {
                     changed = true;
-                    float force = contact.otherCollider.gameObject.GetComponent<Rigidbody>().mass * contact.otherCollider.gameObject.GetComponent<Rigidbody>().velocity.magnitude;
+                    float force = 100;
                     AddDeformingForce(contact.point.normalized, force);
                     StartCoroutine("updateMeshCollidor");
                     hittable = false;

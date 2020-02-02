@@ -16,15 +16,15 @@ public class Arm : MonoBehaviour
     bool closedMiddle = false;
     bool closedRing = false;
     bool closedPinky = false;
+    bool isRotate = false;
 
     bool isGrabbing = false;
 
 
     public Transform grabTransform;
     public GetGrab gitGrab;
+    public GameObject heldObj;
 
-    public GameObject obj1;
-    public GameObject obj2;
 
     void Awake()
     {
@@ -34,6 +34,9 @@ public class Arm : MonoBehaviour
 
         controls.Arm.KeyboardMovement.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.Arm.KeyboardMovement.canceled += ctx => move = Vector2.zero;
+
+        controls.Arm.Rotate.performed += ctx => isRotate = true;
+        controls.Arm.Rotate.canceled += ctx => isRotate = false;
 
         controls.Arm.LiftHand.performed += ctx => liftHand = true;
         controls.Arm.LiftHand.canceled += ctx => liftHand = false;
@@ -70,8 +73,7 @@ public class Arm : MonoBehaviour
     void Update()
     {
 
-        Vector3 m = new Vector3(-move.x, 0, -move.y) * Time.deltaTime;
-        transform.Translate(m, Space.World);
+        
 
         if (liftHand)
         {
@@ -81,20 +83,30 @@ public class Arm : MonoBehaviour
         {
             LowerHand();
         }
+        if (isRotate)
+        {
+            Vector3 r = new Vector3(0, 25, 0) * Time.deltaTime;
+            this.transform.Rotate(r);
+        }
 
-        if(closedThumb && closedIndex && closedMiddle && closedMiddle && closedRing && closedPinky && !isGrabbing)
+        if(closedThumb && closedIndex && closedMiddle && closedMiddle && closedRing && closedPinky)
         {
             //TO GRAB
             animator.SetBool("isClosed", true);
             Debug.Log("Grab Attempt");
-            obj1.SetActive(true);
-            obj2.SetActive(true);
+            GrabObject();
+
         } else
         {
             animator.SetBool("isClosed", false);
-            obj1.SetActive(false);
-            obj2.SetActive(false);
+            DropObject();
+
         }
+        //else
+        //{
+        //    isGrabbing = false;
+        //  //  DropObject();
+        //}
     }
 
     public void Fire(InputAction.CallbackContext context)
@@ -122,4 +134,27 @@ public class Arm : MonoBehaviour
         transform.position += new Vector3(0, -0.5f, 0) * Time.deltaTime;
     }
 
+    public void GrabObject()
+    {
+        if (gitGrab.hoveredObj != null)
+        {
+            gitGrab.hoveredObj.transform.position = grabTransform.position;
+            gitGrab.hoveredObj.transform.rotation = grabTransform.rotation;
+            gitGrab.hoveredObj.transform.parent = grabTransform;
+            gitGrab.hoveredObj.GetComponent<Rigidbody>().isKinematic = true;
+
+            
+        }
+    }
+    public void DropObject()
+    {
+        if (gitGrab.hoveredObj != null)
+        {
+            gitGrab.hoveredObj.GetComponent<Rigidbody>().isKinematic = false;
+            gitGrab.hoveredObj.transform.parent = null;
+            
+            gitGrab.hoveredObj = null;
+            
+        }
+    }
 }

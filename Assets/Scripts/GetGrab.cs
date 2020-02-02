@@ -20,9 +20,17 @@ public class GetGrab : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Interact"))
+        Debug.Log(other.tag);
+        if (other.CompareTag("hammer"))
         {
             hoveredObj = other.gameObject;
         }
     }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Interact"))
+    //    {
+    //        hoveredObj = null;
+    //    }
+    //}
 }

@@ -89,6 +89,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Button"",
+                    ""id"": ""782d83d6-ec06-471b-9c79-e88a787c0557"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -98,7 +106,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": ""Normalize(min=1,max=1)"",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Gamepad;Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -109,7 +117,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Gamepad;Keyboard"",
                     ""action"": ""LiftHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -120,7 +128,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/l"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard;Gamepad"",
                     ""action"": ""LiftHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -131,7 +139,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Gamepad;Keyboard"",
                     ""action"": ""LowerHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -142,7 +150,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard;Gamepad"",
                     ""action"": ""LowerHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -153,7 +161,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Gamepad;Keyboard"",
                     ""action"": ""CloseThumb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -164,7 +172,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/h"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard;Gamepad"",
                     ""action"": ""CloseThumb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -175,7 +183,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad;Keyboard"",
                     ""action"": ""CloseIndex"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -186,7 +194,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/u"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad;Keyboard"",
                     ""action"": ""CloseIndex"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -197,7 +205,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad;Keyboard"",
                     ""action"": ""CloseMiddle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -208,7 +216,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad;Keyboard"",
                     ""action"": ""CloseMiddle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -219,7 +227,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad;Keyboard"",
                     ""action"": ""CloseRing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -230,7 +238,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/o"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad;Keyboard"",
                     ""action"": ""CloseRing"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -241,7 +249,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard;Gamepad"",
                     ""action"": ""ClosePinky"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -252,7 +260,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad;Keyboard"",
                     ""action"": ""ClosePinky"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -274,7 +282,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard;Gamepad"",
                     ""action"": ""KeyboardMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -285,7 +293,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard;Gamepad"",
                     ""action"": ""KeyboardMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -296,7 +304,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard;Gamepad"",
                     ""action"": ""KeyboardMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -307,10 +315,32 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard;Gamepad"",
                     ""action"": ""KeyboardMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cefa6013-3150-48f2-804d-c75986d538c3"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad;Keyboard"",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""965967e4-aefd-4888-b57a-8245000cfdad"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard;Gamepad"",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -351,6 +381,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Arm_CloseRing = m_Arm.FindAction("CloseRing", throwIfNotFound: true);
         m_Arm_ClosePinky = m_Arm.FindAction("ClosePinky", throwIfNotFound: true);
         m_Arm_KeyboardMovement = m_Arm.FindAction("KeyboardMovement", throwIfNotFound: true);
+        m_Arm_Rotate = m_Arm.FindAction("Rotate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -409,6 +440,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Arm_CloseRing;
     private readonly InputAction m_Arm_ClosePinky;
     private readonly InputAction m_Arm_KeyboardMovement;
+    private readonly InputAction m_Arm_Rotate;
     public struct ArmActions
     {
         private @PlayerControls m_Wrapper;
@@ -422,6 +454,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @CloseRing => m_Wrapper.m_Arm_CloseRing;
         public InputAction @ClosePinky => m_Wrapper.m_Arm_ClosePinky;
         public InputAction @KeyboardMovement => m_Wrapper.m_Arm_KeyboardMovement;
+        public InputAction @Rotate => m_Wrapper.m_Arm_Rotate;
         public InputActionMap Get() { return m_Wrapper.m_Arm; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -458,6 +491,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @KeyboardMovement.started -= m_Wrapper.m_ArmActionsCallbackInterface.OnKeyboardMovement;
                 @KeyboardMovement.performed -= m_Wrapper.m_ArmActionsCallbackInterface.OnKeyboardMovement;
                 @KeyboardMovement.canceled -= m_Wrapper.m_ArmActionsCallbackInterface.OnKeyboardMovement;
+                @Rotate.started -= m_Wrapper.m_ArmActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_ArmActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_ArmActionsCallbackInterface.OnRotate;
             }
             m_Wrapper.m_ArmActionsCallbackInterface = instance;
             if (instance != null)
@@ -489,6 +525,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @KeyboardMovement.started += instance.OnKeyboardMovement;
                 @KeyboardMovement.performed += instance.OnKeyboardMovement;
                 @KeyboardMovement.canceled += instance.OnKeyboardMovement;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
             }
         }
     }
@@ -522,5 +561,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnCloseRing(InputAction.CallbackContext context);
         void OnClosePinky(InputAction.CallbackContext context);
         void OnKeyboardMovement(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
 }
