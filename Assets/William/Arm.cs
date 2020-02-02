@@ -17,6 +17,12 @@ public class Arm : MonoBehaviour
     bool closedRing = false;
     bool closedPinky = false;
 
+    bool isGrabbing = false;
+
+
+    public Transform grabTransform;
+    public GetGrab gitGrab;
+
     void Awake()
     {
         controls = new PlayerControls();
@@ -33,19 +39,19 @@ public class Arm : MonoBehaviour
         controls.Arm.LowerHand.canceled += ctx => lowerHand = false;
 
         controls.Arm.CloseThumb.performed += ctx => closedThumb = true;
-        controls.Arm.CloseThumb.performed += ctx => closedThumb = false;
+        controls.Arm.CloseThumb.canceled += ctx => closedThumb = false;
 
         controls.Arm.CloseIndex.performed += ctx => closedIndex = true;
-        controls.Arm.CloseIndex.performed += ctx => closedIndex = false;
+        controls.Arm.CloseIndex.canceled += ctx => closedIndex = false;
 
         controls.Arm.CloseMiddle.performed += ctx => closedMiddle = true;
-        controls.Arm.CloseMiddle.performed += ctx => closedMiddle = false;
+        controls.Arm.CloseMiddle.canceled += ctx => closedMiddle = false;
 
         controls.Arm.CloseRing.performed += ctx => closedRing = true;
-        controls.Arm.CloseRing.performed += ctx => closedRing = false;
+        controls.Arm.CloseRing.canceled += ctx => closedRing = false;
 
         controls.Arm.ClosePinky.performed += ctx => closedPinky = true;
-        controls.Arm.ClosePinky.performed += ctx => closedPinky = false;
+        controls.Arm.ClosePinky.canceled += ctx => closedPinky = false;
 
     }
     private void OnEnable()
@@ -73,9 +79,12 @@ public class Arm : MonoBehaviour
             LowerHand();
         }
 
-        if(closedThumb && closedIndex && closedMiddle && closedMiddle && closedRing && closedPinky)
+        if(closedThumb && closedIndex && closedMiddle && closedMiddle && closedRing && closedPinky && !isGrabbing)
         {
             //TO GRAB
+            Debug.Log("Grab Attempt");
+            GrabObject();
+            isGrabbing = true;
         }
     }
 
@@ -83,7 +92,9 @@ public class Arm : MonoBehaviour
     {
         Debug.Log("Fire!");
     }
+
     
+
 
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -100,5 +111,13 @@ public class Arm : MonoBehaviour
     public void LowerHand()
     {
         transform.position += new Vector3(0, -0.5f, 0) * Time.deltaTime;
+    }
+
+    public void GrabObject()
+    {
+        gitGrab.transform.position = grabTransform.position;
+        gitGrab.hoveredObj.transform.parent = grabTransform;
+        gitGrab.gameObject.AddComponent<Obi.ObiRigidbody>();
+        //gitGrab.GetComponent<MeshCollider>().enabled = false;
     }
 }
