@@ -8,11 +8,11 @@ public class Scoring : MonoBehaviour
     Vector3[] originalVerticiesPositions, finalVerticiesPositions;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         meshToScore = GetComponent<MeshFilter>().mesh;
         originalVerticiesPositions = meshToScore.vertices;
-        finalVerticiesPositions = new Vector3[originalVerticiesPositions.Length];
+        //finalVerticiesPositions = new Vector3[originalVerticiesPositions.Length];
     }
 
     // Update is called once per frame
@@ -21,12 +21,15 @@ public class Scoring : MonoBehaviour
         
     }
 
-    private void ScoreTime()
+    public void ScoreTime()
     {
+        finalVerticiesPositions = meshToScore.vertices;
         Vector3 score = new Vector3(0,0,0);
         for(int i = 0; i < originalVerticiesPositions.Length; i++)
         {
+            Debug.Log("og vert: "+originalVerticiesPositions[i] +" - final vert "+ finalVerticiesPositions[i]+" = "+ (originalVerticiesPositions[i] - finalVerticiesPositions[i]));
             score += (originalVerticiesPositions[i] - finalVerticiesPositions[i]);
+            Debug.Log("Score = " + score);
         }
 
         float finalX = Mathf.Abs(score.x);
@@ -40,7 +43,7 @@ public class Scoring : MonoBehaviour
 
     private void LetterGrade(float finalScore)
     {
-        if(finalScore >= 0 && finalScore < 1)
+        if(finalScore == 0)
         {
             Debug.Log("You got an A!!!");
         }

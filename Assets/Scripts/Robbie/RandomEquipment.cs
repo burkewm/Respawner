@@ -5,84 +5,47 @@ using UnityEngine;
 public class RandomEquipment : MonoBehaviour
 {
     public List<GameObject> equipmentOptions = new List<GameObject>();
+    public List<GameObject> equipmentSpawns = new List<GameObject>();
 
-    private List<GameObject> usedEquipment = new List<GameObject>();
+    public List<GameObject> equippedArmor = new List<GameObject>();
 
-    PlayerControls controls;
-    
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        DoThing();
     }
-
-    void Awake()
-    {
-        controls = new PlayerControls();
-        controls.Arm.LiftHand.performed += ctx => DoThing();
-    }
-
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void DoThing()
     {
-        List<GameObject> temp = new List<GameObject>();
-
-        for (int i = 0; i < equipmentOptions.Count; i++)
-        {
-            temp.Add(equipmentOptions[i]);
-        }
-
-        Debug.Log("L was pressed");
-
-        int rnd = Random.Range(0, temp.Count);
-        Debug.Log(rnd);
+        int rnd = Random.Range(1, equipmentOptions.Count);
 
         for(int i = 0; i < rnd; i++)
         {
-            int randoIndex = Random.Range(0, temp.Count);
 
             int isBroken = Random.Range(0, 99);
 
             if(isBroken%2 == 0)
             {
-                usedEquipment.Add(temp[randoIndex]);
-                Debug.Log(temp[randoIndex] + " is not broken");
-                temp.RemoveAt(randoIndex);
+                Debug.Log("undamaged");
+                int randoIndex = Random.Range(0, equipmentOptions.Count);
+                GameObject armor = equipmentOptions[randoIndex].gameObject;
+                var newArmor = Instantiate(armor, new Vector3(0, 4, 0), Quaternion.identity);
+                equippedArmor.Add(newArmor);
             }
             else
             {
-                usedEquipment.Add(temp[randoIndex]);
-                Debug.Log(temp[randoIndex] + " is broken");
-                temp.RemoveAt(randoIndex);
+                Debug.Log("damaged");
+                int randoIndex = Random.Range(0, equipmentOptions.Count);
+                GameObject armor = equipmentOptions[randoIndex].gameObject;
+                var newArmor = Instantiate(armor, new Vector3(0, 4, 0), Quaternion.identity);
+                newArmor.GetComponent<Deformer>().StartingDamage();
+                equippedArmor.Add(newArmor);
             }
             
         }
 
-        for(int i = 0; i < usedEquipment.Count; i++)
+        for(int i = 0; i < equippedArmor.Count; i++)
         {
-            Debug.Log(usedEquipment[i].name);
-        }
-
-        ClearUsedEquipment();
-    }
-
-    void ClearUsedEquipment()
-    {
-        int count = usedEquipment.Count;
-
-        for (int i = 0; i < count; i++)
-        {
-            usedEquipment.RemoveAt(0);
+            equippedArmor[i].GetComponent<Scoring>().ScoreTime();
         }
     }
+
 }
