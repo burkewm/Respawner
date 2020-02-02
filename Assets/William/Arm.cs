@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Arm : MonoBehaviour
 {
-    
+    public Animator animator;
     PlayerControls controls;
     Vector2 move;
     bool liftHand = false;
@@ -22,6 +22,9 @@ public class Arm : MonoBehaviour
 
     public Transform grabTransform;
     public GetGrab gitGrab;
+
+    public GameObject obj1;
+    public GameObject obj2;
 
     void Awake()
     {
@@ -82,9 +85,15 @@ public class Arm : MonoBehaviour
         if(closedThumb && closedIndex && closedMiddle && closedMiddle && closedRing && closedPinky && !isGrabbing)
         {
             //TO GRAB
+            animator.SetBool("isClosed", true);
             Debug.Log("Grab Attempt");
-            GrabObject();
-            isGrabbing = true;
+            obj1.SetActive(true);
+            obj2.SetActive(true);
+        } else
+        {
+            animator.SetBool("isClosed", false);
+            obj1.SetActive(false);
+            obj2.SetActive(false);
         }
     }
 
@@ -113,11 +122,4 @@ public class Arm : MonoBehaviour
         transform.position += new Vector3(0, -0.5f, 0) * Time.deltaTime;
     }
 
-    public void GrabObject()
-    {
-        gitGrab.transform.position = grabTransform.position;
-        gitGrab.hoveredObj.transform.parent = grabTransform;
-        gitGrab.gameObject.AddComponent<Obi.ObiRigidbody>();
-        //gitGrab.GetComponent<MeshCollider>().enabled = false;
-    }
 }

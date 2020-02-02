@@ -6,6 +6,7 @@ TagManager:
   tags:
   - hammer
   - Interact
+  - hand
   layers:
   - Default
   - TransparentFX
