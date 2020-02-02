@@ -18,6 +18,9 @@ public class Arm : MonoBehaviour
         controls.Arm.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.Arm.Move.canceled += ctx => move = Vector2.zero;
 
+        controls.Arm.KeyboardMovement.performed += ctx => move = ctx.ReadValue<Vector2>();
+        controls.Arm.KeyboardMovement.canceled += ctx => move = Vector2.zero;
+
         controls.Arm.LiftHand.performed += ctx => liftHand = true;
         controls.Arm.LiftHand.canceled += ctx => liftHand = false;
 
@@ -36,8 +39,10 @@ public class Arm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Vector3 m = new Vector3(-move.x, 0, -move.y) * Time.deltaTime;
         transform.Translate(m, Space.World);
+
         if (liftHand)
         {
             LiftHand();
@@ -47,6 +52,7 @@ public class Arm : MonoBehaviour
             LowerHand();
         }
     }
+
     public void Fire(InputAction.CallbackContext context)
     {
         Debug.Log("Fire!");
