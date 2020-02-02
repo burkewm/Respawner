@@ -13,6 +13,7 @@ public class Deformer : MonoBehaviour
     public float forceOffset = 0.1f;
     private MeshCollider meshCollider;
     private bool hittable = true;
+    private bool changed = false;
 
     private void Awake()
     {
@@ -52,15 +53,19 @@ public class Deformer : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < displacedVertices.Length; i++)
+        if (changed)
         {
-            UpdateVertex(i);
-            
+            for (int i = 0; i < displacedVertices.Length; i++)
+            {
+                UpdateVertex(i);
+
+            }
+            deformingMesh.vertices = displacedVertices;
+            deformingMesh.RecalculateNormals();
+            meshCollider.sharedMesh = null;
+            meshCollider.sharedMesh = deformingMesh;
+            changed = false;
         }
-        deformingMesh.vertices = displacedVertices;
-        deformingMesh.RecalculateNormals();
-        meshCollider.sharedMesh = null;
-        meshCollider.sharedMesh = deformingMesh;
     }
 
     private void UpdateVertex(int i)
@@ -94,6 +99,7 @@ public class Deformer : MonoBehaviour
             {
                 if (contact.otherCollider.gameObject.tag == "hammer")
                 {
+                    changed = true;
                     float force = contact.otherCollider.gameObject.GetComponent<Rigidbody>().mass * contact.otherCollider.gameObject.GetComponent<Rigidbody>().velocity.magnitude;
                     AddDeformingForce(contact.point.normalized, force);
                     StartCoroutine("updateMeshCollidor");
