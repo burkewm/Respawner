@@ -53,7 +53,7 @@ public class Deformer : MonoBehaviour
         vertexVelocities[i] += pointToVertex.normalized * velocity;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         uniformScale = transform.localScale.x;
 
@@ -76,7 +76,7 @@ public class Deformer : MonoBehaviour
         Vector3 velocity = vertexVelocities[i];
         velocity *= 1f - damping * Time.deltaTime;
         vertexVelocities[i] = velocity;
-        displacedVertices[i] += velocity * Time.deltaTime;
+        displacedVertices[i] += velocity * (Time.deltaTime / uniformScale);
 
     }
 
@@ -103,8 +103,10 @@ public class Deformer : MonoBehaviour
                 if (contact.otherCollider.gameObject.tag == "hammer")
                 {
                     changed = true;
-                    float force = 100;
-                    AddDeformingForce(contact.point.normalized, force);
+                    //float force = 50;
+                    float force = contact.otherCollider.gameObject.GetComponent<Rigidbody>().mass * contact.otherCollider.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude;
+                    Vector3 point = contact.point * forceOffset;
+                    AddDeformingForce(point, force);
                     StartCoroutine("updateMeshCollidor");
                     hittable = false;
                     StartCoroutine("sethittable");

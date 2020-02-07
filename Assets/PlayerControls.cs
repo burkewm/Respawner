@@ -97,13 +97,21 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""f4b20dc5-1d17-4adf-bb98-1b361e93e786"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""3c65c7f2-89cd-4b34-9300-857054a1a409"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""path"": ""<XInputController>/leftStick"",
                     ""interactions"": """",
                     ""processors"": ""Normalize(min=1,max=1)"",
                     ""groups"": ""Gamepad;Keyboard"",
@@ -334,11 +342,33 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""965967e4-aefd-4888-b57a-8245000cfdad"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard;Gamepad"",
                     ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f8362d4-4209-4600-833c-b5fa1a3ac204"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c22c9f09-6e54-4888-b27f-3ffa6c0ea5da"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -382,6 +412,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Arm_ClosePinky = m_Arm.FindAction("ClosePinky", throwIfNotFound: true);
         m_Arm_KeyboardMovement = m_Arm.FindAction("KeyboardMovement", throwIfNotFound: true);
         m_Arm_Rotate = m_Arm.FindAction("Rotate", throwIfNotFound: true);
+        m_Arm_Reset = m_Arm.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -441,6 +472,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Arm_ClosePinky;
     private readonly InputAction m_Arm_KeyboardMovement;
     private readonly InputAction m_Arm_Rotate;
+    private readonly InputAction m_Arm_Reset;
     public struct ArmActions
     {
         private @PlayerControls m_Wrapper;
@@ -455,6 +487,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @ClosePinky => m_Wrapper.m_Arm_ClosePinky;
         public InputAction @KeyboardMovement => m_Wrapper.m_Arm_KeyboardMovement;
         public InputAction @Rotate => m_Wrapper.m_Arm_Rotate;
+        public InputAction @Reset => m_Wrapper.m_Arm_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Arm; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -494,6 +527,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Rotate.started -= m_Wrapper.m_ArmActionsCallbackInterface.OnRotate;
                 @Rotate.performed -= m_Wrapper.m_ArmActionsCallbackInterface.OnRotate;
                 @Rotate.canceled -= m_Wrapper.m_ArmActionsCallbackInterface.OnRotate;
+                @Reset.started -= m_Wrapper.m_ArmActionsCallbackInterface.OnReset;
+                @Reset.performed -= m_Wrapper.m_ArmActionsCallbackInterface.OnReset;
+                @Reset.canceled -= m_Wrapper.m_ArmActionsCallbackInterface.OnReset;
             }
             m_Wrapper.m_ArmActionsCallbackInterface = instance;
             if (instance != null)
@@ -528,6 +564,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Rotate.started += instance.OnRotate;
                 @Rotate.performed += instance.OnRotate;
                 @Rotate.canceled += instance.OnRotate;
+                @Reset.started += instance.OnReset;
+                @Reset.performed += instance.OnReset;
+                @Reset.canceled += instance.OnReset;
             }
         }
     }
@@ -562,5 +601,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnClosePinky(InputAction.CallbackContext context);
         void OnKeyboardMovement(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }
